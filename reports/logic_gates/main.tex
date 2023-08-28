@@ -10,6 +10,10 @@
 \usepackage[utf8]{inputenc} % UTF-8 encoding
 \usepackage[english]{babel} % Document language - required for customizing section titles
 \usepackage{hyperref} % For hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+}
 
 \usepackage{geometry}
 \geometry{top=3cm} % Adjust the top margin as needed
@@ -41,7 +45,7 @@
 	%	REPORT INFORMATION
 	%----------------------------------------------------------------------------------------
 
-		\begin{titlepage}
+	\begin{titlepage}
 		\centering
 		\vspace{1.5cm} % Adjust vertical space
 
@@ -71,7 +75,7 @@
 			\end{tabular}
 
 		\vfill % Fill the rest of the page with whitespace
-		\end{titlepage}
+	\end{titlepage}
 
 
 	%----------------------------------------------------------------------------------------
@@ -96,8 +100,8 @@
 		\include{sections/AND}
 		\include{sections/OR}
 		\include{sections/XOR}
-		\include{sections/conclusions}
-		\include{sections/appendix}
+		% \include{sections/conclusions}
+		% \include{sections/appendix}
 		
 		
 	%----------------------------------------------------------------------------------------
