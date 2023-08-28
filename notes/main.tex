@@ -1,0 +1,108 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{report}
+
+\usepackage[utf8]{inputenc}	% UTF-8 encoding
+\usepackage[english]{babel} % Document language - required for customizing section titles
+
+\usepackage{biblatex} % Required for bibliography management
+\usepackage{hyperref} % For hyperlinks
+\usepackage{titlesec} % For custom section numbering format
+
+\usepackage{amsmath, amssymb, amsthm} % Required for some math elements
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{geometry}
+\usepackage{textgreek}
+
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{caption, subcaption} % Required for the inclusion of captions
+
+\usepackage{booktabs} % Required for better horizontal rules in tables
+
+\usepackage{siunitx} % Required for alignment of numbers with units
+
+
+\geometry{top=3cm} % Adjust the top margin as needed
+\geometry{bottom=2.5cm} % Adjust the bottom margin as needed
+
+% Custom section numbering format (without prefix)
+\renewcommand{\thesection}{\arabic{section}}
+
+\newcounter{definition}[section] % Define a new counter tied to sections
+\renewcommand{\thedefinition}{\thesection.\arabic{definition}} % Customize the counter format
+
+\newenvironment{defn}[1][]{%
+    \refstepcounter{definition}% Increment the counter
+    \par\medskip\noindent%
+    \textbf{Definizione \thedefinition: #1 \\}% Header
+}{
+    \par\medskip % Insert a break
+}
+
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\begin{center}
+
+		\vspace{1.5cm} % Adjust vertical space
+
+		\includegraphics[width=1\textwidth]{figures/unimi.jpg} % University logo
+
+		\vspace{1.5cm} % Adjust vertical space
+		
+		\Huge Laboratorio di Elettronica \\ Note del corso % Report title
+		
+		\vspace{1cm} % Adjust vertical space
+		
+		\Large Lorenzo \textsc{Liuzzo} % Author name(s), add additional authors like: '\& James \textsc{Smith}'
+		
+		\vspace{2cm} % Adjust vertical space
+
+		\begin{tabular}{l r}
+			Bachelor's Degree: & Physics \\ % Degree
+			Academic Year: & 2022/2023 \\ % Accademic year
+			Course: & Electronics Laboratory \\ % Course
+			Professor: & Valentino \textsc{Liberali} \\% Instructor/supervisor
+		\end{tabular}
+
+		\vfill % Fill the rest of the page with whitespace
+	
+	\end{center}
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Include a table of contents
+
+\newpage % Begins the essay on a new page instead of on the same page as the table of contents
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\include{sections/1}
+\include{sections/2}
+\include{sections/3}
+\include{sections/4}
+\include{sections/5}
+\include{sections/6}
+\include{sections/7}
+\include{sections/8}
+\include{sections/9}
+
+
+\end{document}

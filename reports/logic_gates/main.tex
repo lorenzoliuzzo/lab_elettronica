@@ -1,0 +1,112 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	a4paper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{report}
+
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[english]{babel} % Document language - required for customizing section titles
+\usepackage{hyperref} % For hyperlinks
+
+\usepackage{geometry}
+\geometry{top=3cm} % Adjust the top margin as needed
+\geometry{bottom=2.8cm} % Adjust the bottom margin as needed
+
+\usepackage{graphicx} % Required for the inclusion of images
+
+\usepackage{caption} % Required for the inclusion of captions
+\captionsetup{format=plain} % Removes any additional formatting after caption
+
+\usepackage{float} % Allows putting an [H] in \begin{figure} to specify the exact location of the figure
+\usepackage{booktabs} % Required for better horizontal rules in tables
+
+\usepackage{amsmath, amssymb, amsthm} % Required for some math elements
+\usepackage{siunitx} % Required for alignment of numbers with units
+
+\usepackage{titlesec} % For custom section numbering format
+\renewcommand{\thesection}{\arabic{section}} % Custom section numbering format (without prefix)
+
+% \usepackage{biblatex} % Required for bibliography management
+% \addbibresource{main.bib} % Bibliography file (located in the same folder as the main)
+
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+	%----------------------------------------------------------------------------------------
+	%	REPORT INFORMATION
+	%----------------------------------------------------------------------------------------
+
+		\begin{titlepage}
+		\centering
+		\vspace{1.5cm} % Adjust vertical space
+
+			\includegraphics[width=1\textwidth]{figures/unimi.jpg} % University logo
+
+		\vspace{1.5cm}
+			
+			\Huge Lab Report:\\ Logic Gates % Report title
+			
+		\vspace{1cm}
+			
+			\Large Lorenzo \textsc{Liuzzo} % Author name(s), add additional authors like: '\& James \textsc{Smith}'
+			
+		\vspace{2cm}
+		
+			\begin{tabular}{l r}
+			
+				Bachelor's Degree: & Physics \\ % Degree
+				Course: & Electronics Laboratory \\ % Course
+				Academic Year: & 2022/2023 \\ % Accademic year
+				\\
+				Instructor: & Professor Valentino \textsc{Liberali} \\ % Instructor/supervisor
+				Partners: & Jiahao \textsc{Miao} \\ & Riccardo \textsc{Salto} \\ % Partner names
+				\\
+				Date Performed: & May 24, 2023 \\ % Date the experiment was performed
+				
+			\end{tabular}
+
+		\vfill % Fill the rest of the page with whitespace
+		\end{titlepage}
+
+
+	%----------------------------------------------------------------------------------------
+	%	ABSTRACT & TOC
+	%----------------------------------------------------------------------------------------
+
+		\input{sections/abstract}
+
+		{\let\clearpage\relax \tableofcontents}
+		
+
+	%----------------------------------------------------------------------------------------
+	%	SECTIONS
+	%----------------------------------------------------------------------------------------
+		
+		\clearpage % Forces the first chapter to start on an odd page so it's on the right
+
+		\include{sections/introduction}
+		\include{sections/NOT}
+		\include{sections/NAND}
+		\include{sections/NOR}
+		\include{sections/AND}
+		\include{sections/OR}
+		\include{sections/XOR}
+		\include{sections/conclusions}
+		\include{sections/appendix}
+		
+		
+	%----------------------------------------------------------------------------------------
+	%	BIBLIOGRAPHY
+	%----------------------------------------------------------------------------------------
+
+		% \printbibliography % Output the bibliography
+
+
+\end{document}
+
+%----------------------------------------------------------------------------------------
