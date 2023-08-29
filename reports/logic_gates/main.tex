@@ -33,6 +33,8 @@
 \usepackage{titlesec} % For custom section numbering format
 \renewcommand{\thesection}{\arabic{section}} % Custom section numbering format (without prefix)
 
+\usepackage[autostyle]{csquotes} % Required for block quotes
+
 % \usepackage{biblatex} % Required for bibliography management
 % \addbibresource{main.bib} % Bibliography file (located in the same folder as the main)
 
@@ -94,15 +96,23 @@
 		\clearpage % Forces the first chapter to start on an odd page so it's on the right
 
 		\include{sections/introduction}
-		\include{sections/NOT}
-		\include{sections/NAND}
-		\include{sections/NOR}
-		\include{sections/AND}
-		\include{sections/OR}
-		\include{sections/XOR}
-		% \include{sections/conclusions}
-		% \include{sections/appendix}
 		
+		\section{Basic Logic Gates}
+			There are three basic logic gates from which any Boolean circuit may be built up. 
+			Any function in binary mathematics may be implemented using only the logic gates NOT, AND, and OR.
+			\input{sections/NOT}
+			\input{sections/AND}
+			\input{sections/OR}
+
+		\newpage
+		\section{Universal Logic Gates}
+			\input{sections/NAND}
+			\input{sections/NOR}
+			\input{sections/universal_to_basic}
+
+		\newpage
+		\section{Other Logic Gates}
+			\input{sections/XOR}
 		
 	%----------------------------------------------------------------------------------------
 	%	BIBLIOGRAPHY

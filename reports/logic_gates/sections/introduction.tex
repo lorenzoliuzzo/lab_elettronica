@@ -1,6 +1,11 @@
 \section{Introduction}
     %%% some intro stuff
 
+    \subsection{Resistor-Transistor Logic}
+        Resistor-Transistor Logic (RTL) is a fundamental digital logic family extensively used in electronic circuit design. 
+        It leverages transistors for logic gates and integrates resistors for biasing and signal conditioning. 
+        This straightforward and cost-effective approach to building digital circuits lays the groundwork for advanced logic families and integrated circuits. 
+
     \subsection{Bipolar Junction Transistor}
         The Bipolar Junction Transistor (BJT) is comprised of three layers: the emitter, the base, and the collector. 
         N-type and P-type materials, each doped with different impurities, compose these layers. 
@@ -17,14 +22,13 @@
         This behavior is consistent for both NPN and PNP BJTs. During this state, the collector-emitter junction acts as a barrier, preventing any significant current flow, much like a dam restraining water. 
         Additionally, the base-emitter junction remains non-conductive, blocking the flow of current from the emitter to the collector. \\
         Transitioning to the active state, the BJT takes on the role of a signal amplifier. A small current flows from the emitter to the base, giving rise to a more substantial current that courses from the collector to the emitter. 
-        This relationship between the base and collector currents forms the cornerstone of the BJT's amplification capability. 
-        In the NPN BJT, electrons serve as the majority charge carriers, whereas the PNP BJT relies on holes for its operation. 
-        This active state allows the BJT to effectively manipulate current flow and, consequently, amplify signals. \\\\
+        This relationship between the base and collector currents forms the cornerstone of the BJT's amplification capability. \\\\
         This amplification phenomenon hinges on the controlled movement of charge carriers across the emitter-base junction. 
         As electrons (or holes) traverse this junction, they engage with the majority carriers in the adjacent layer, resulting in the creation of localized charge regions. 
-        These regions facilitate the flow of current from the collector to the emitter. In the NPN BJT, electrons cross from the emitter to the base. 
+        These regions facilitate the flow of current from the collector to the emitter. \\
+        In the NPN BJT, electrons cross from the emitter to the base. 
         The thinness of the base region and the attractive force exerted by the positively doped collector allow some electrons to overcome the barrier and reach the collector. 
-        The modest base current exerts a substantial influence, enabling small variations in its magnitude to produce significant changes in the collector current. 
+        The modest base current exerts a substantial influence, enabling small variations in its magnitude to produce significant changes in the collector current. \\
         Similarly, the PNP BJT witnesses the flow of holes from the emitter to the base, and the base current governs the larger collector current. 
         In this configuration, the base-emitter junction, now comprised of N-type emitter material and P-type base material, emulates the behavior exhibited by the NPN counterpart. 
         Holes traverse the base region, ultimately converging at the collector, thus amplifying the overall current. \\\\
@@ -32,9 +36,6 @@
         This state is called saturation. It's as if the BJT switch is turned on fully, allowing maximal current flow through the collector-emitter path. \\
         On the opposite side, as the base current drops, the collector current also decreases until it nearly vanishes. 
         This state is known as cutoff, where the BJT operates as a near-perfect insulator, stopping any significant current from flowing through the collector-emitter junction.
-
-    \subsection{RTL}
         
-    \subsection{Boolean Algebra}
-        
+    \subsection{Boolean Algebra}        
     

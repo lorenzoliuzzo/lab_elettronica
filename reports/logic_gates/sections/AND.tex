@@ -1,22 +1,40 @@
-\section{AND}
+\subsection{AND}
+	The AND gate implements logical conjunction ($\land$) from mathematical logic.
+	Its operation can be represented as $\text{AND}(A, B) = A \cdot B$, where $A$ and $B$ are the input signals. \\
+	The circuitry of an AND gate involves multiple transistors arranged in series. 
+	For a two-input AND gate, two transistors are connected in series, as shown in Figure \ref{fig:AND_circuit}. \\
+	If both inputs are high (1), both transistors conduct, creating a low-resistance path from the power supply to the output, resulting in a high output (1). 
+	If either or both inputs are low (0), at least one of the transistors will be off, and the output will be pulled to a low state (0). 
+    This behavior is consistent with the AND gate's truth table shown in Table \ref{tab:AND_table}. \\
+	The symbol for the AND gate is shown in Figure \ref{fig:AND_sym}.
+
+	\begin{figure}[H]
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{figures/circuits/AND.png}
+			\captionof{figure}{AND schematic circuit.}
+			\label{fig:AND_circuit} 
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\captionof{table}{AND truth table.}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				Input A & Input B & Output \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				1 & 1 & 1 \\
+				\hline
+			\end{tabular}
+			\label{tab:AND_table}
+		\end{minipage}
+	\end{figure}
+
 	\begin{figure}[H]
 	    \centering
 	    \includegraphics[width=0.3\textwidth]{figures/symbols/AND.png}
 	    \caption{AND symbol.}
 	    \label{fig:AND_sym} 
 	\end{figure}
-
-	\begin{table}[ht]
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		Input A & Input B & Output \\
-		\hline
-		0 & 0 & 0 \\
-		0 & 1 & 0 \\
-		1 & 0 & 0 \\
-		1 & 1 & 1 \\
-		\hline
-	\end{tabular}
-	\caption{Truth table for the AND gate.}
-	\end{table}
