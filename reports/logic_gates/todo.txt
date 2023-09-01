@@ -1,5 +1,0 @@
-Introduction - Boolean algebra
-Basic Logic Gates form NAND and NOR - Functional completeness
-Description of XOR's operation
-4 BJT XOR gate
-Half and Full adder?

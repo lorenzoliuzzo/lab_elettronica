@@ -1,4 +1,4 @@
-\section{Introduction}
+\section{Theoretical background}
     %%% some intro stuff
 
     \subsection{Resistor-Transistor Logic}
@@ -7,7 +7,7 @@
         This straightforward and cost-effective approach to building digital circuits lays the groundwork for advanced logic families and integrated circuits. 
 
     \subsection{Bipolar Junction Transistor}
-        The Bipolar Junction Transistor (BJT) is comprised of three layers: the emitter, the base, and the collector. 
+        The Bipolar Junction Transistor (BJT) consists of three layers: the emitter, the base, and the collector. 
         N-type and P-type materials, each doped with different impurities, compose these layers. 
         The emitter and collector are doped oppositely, either with excess electrons or holes, while the base remains lightly doped. 
         This setup creates two types of BJTs: NPN and PNP, defined by the arrangement of the layers.
@@ -38,4 +38,43 @@
         This state is known as cutoff, where the BJT operates as a near-perfect insulator, stopping any significant current from flowing through the collector-emitter junction.
         
     \subsection{Boolean Algebra}        
-    
+        Boolean algebra is a fundamental branch of mathematics that deals with binary variables and logical operations, providing a formal framework for analyzing and manipulating logical expressions. 
+        Binary variables can take on one of two values: 0 or 1, representing, respectively, false and true. These binary values correspond to the states of a switch, a circuit element, or a logical proposition. \\
+        Boolean algebra uses logical operators such as conjunction (and) denoted as $\land$, disjunction (or) denoted as $\lor$, and the negation (not) denoted as $\neg$.
+        Boolean algebra is characterized by several key properties that enable the manipulation and simplification of logical expressions. 
+        Some of the fundamental properties include: \\
+
+        \textbf{Commutative Property:}
+        \begin{align*}
+        \text{AND:} \quad & A \land B = B \land A \\
+        \text{OR:} \quad & A \lor B = B \lor A
+        \end{align*}
+
+        \textbf{Associative Property:}
+        \begin{align*}
+        \text{AND:} \quad & (A \land B) \land C = A \land (B \land C) \\
+        \text{OR:} \quad & (A \lor B) \lor C = A \lor (B \lor C)
+        \end{align*}
+
+        \textbf{Distributive Property:}
+        \begin{align*}
+        \text{AND over OR:} \quad & A \land (B \lor C) = (A \land B) \lor (A \land C) \\
+        \text{OR over AND:} \quad & A \lor (B \land C) = (A \lor B) \land (A \lor C)
+        \end{align*}
+
+        \textbf{Identity Property:}
+        \begin{align*}
+        \text{AND:} \quad & A \land 1 = A \\
+        \text{OR:} \quad & A \lor 0 = A
+        \end{align*}
+
+        \textbf{Complement (Inverse) Property:}
+        \begin{align*}
+        \text{AND:} \quad & A \land \neg A = 0 \\
+        \text{OR:} \quad & A \lor \neg A = 1
+        \end{align*}
+
+        \textbf{Double Negation:}
+        \[
+        \neg(\neg A) = A
+        \]

@@ -1,4 +1,4 @@
-\section{Introduction}
+\section{Theoretical background}
 This section provides an overview of the fundamental principles underlying the experience.
 
 	\subsection{Feedback}
@@ -16,16 +16,27 @@ This section provides an overview of the fundamental principles underlying the e
 	\subsection{Virtual ground}
 		The concept of a virtual ground is a fundamental aspect of negative feedback operational amplifier (op-amp) circuits. 
 		In these circuits, a virtual ground is created at the inverting input terminal of the op-amp, even though it is not physically connected to the ground reference. 
-		This virtual ground serves as a reference point for analyzing and designing circuits, allowing for simplified calculations and intuitive understanding.
+		This virtual ground serves as a reference point for analyzing and designing circuits, allowing simplified calculations and intuitive understanding.
 		In fact, negative feedback attempts to drive the inverting input to a voltage that matches the non-inverting input, which can result in $V^+ - V^- = \SI{0}{\volt}$ and, consequently, $I^+ = I^-$.
-		An op-amp is a voltage-controlled voltage generator, so it does not absorb current at the input (behaves like an open circuit), therefore $I^+ = I^- = \SI{0}{\ampere}$. 
+		An op-amp is a voltage-controlled voltage generator, so it does not absorb current at the input (behaves like an open circuit), hence $I^+ = I^- = \SI{0}{\ampere}$. 
 
+	\subsection{Frequency response}
+		The frequency response of a circuit is the quantitative description of how its output responds to its input signal, within a range of different frequencies.
+		The frequency response characterizes systems in the frequency domain, just as the impulse response characterizes systems in the time domain. 
+		In fact, the frequency response is the Fourier transform of the impulse response. \\
+		For a signal $x(t)$, the Fourier transform is defined as: $$ X(\nu) = \int_{-\infty}^{\infty} dt \ x(t) e^{-j 2 \pi \nu t} $$ where $\nu$ is the frequency and $j$ is the imaginary unit. \\\\
+		The frequency response of a system is defined as: $$ H = \frac{X_{out}(\nu)}{X_{in}(\nu)} $$ where $X_{in}(\nu)$ and $X_{out}(\nu)$ are the Fourier transforms of the input and output signals, respectively.
+		The frequency response $H$ lies in the complex field as it employs a complex extension of Ohm's law to articulate the relationship between voltage and current in a circuit:
+		$$V = Z \cdot I$$ \noindent where $Z$ is the complex impedance (measured in $\Omega$). \\
+		Consequently, to describe the frequency response of a circuit, it is necessary to consider both the magnitude and the phase of the output signal with respect to the input signal as polar representation of $H$ in the complex plane.
+
+	\newpage
 	\subsection{Differentiator circuit}
 		The differentiator circuit's functionality is firmly grounded in the mathematical concept of differentiation, a fundamental calculus concept.
 		Analogous to how differentiation calculates the rate of change of a mathematical function concerning its independent variable, 
 		the differentiator circuit accentuates swift variations in input signal amplitude. \\\\
 		The differentiator circuit's design involves the integration of passive and active electronic components:
-		capacitors and resistors play pivotal roles in shaping the circuit's frequency response, allowing it to differentiate signal components with varying frequencies, 
+		capacitors and resistors play pivotal roles in shaping the circuit's frequency response, allowing it to differentiate signal components with different frequencies; 
 		while the operational amplifier is employed to achieve high gain and accurate differentiation by ensuring that the inverting input adheres to a voltage level analogous to ground potential. \\
 		The schematic diagram of the differentiator circuit is illustrated in Figure \ref{fig:differentiator_circuit}. \\\\
 		\begin{figure}[H]
@@ -40,20 +51,31 @@ This section provides an overview of the fundamental principles underlying the e
 		$$ C \cdot \frac{d}{dt}(V_{in}(t) - V^-) = \frac{V^- - V_{out}(t)}{R} $$
 		Remembering that $V^- = \SI{0}{\volt}$, by solving the equation for $V_{out}$, 
 		it is shown that the output of the differentiator circuit is proportional to the rate of change of the input signal with respect to time: $$ V_{out}(t) = - RC \cdot \frac{d}{dt}V_{in}(t) $$
+		Using Fourier's transform and its property, it is possible to further simplify the first order differential equation to obtain the frequency response of the differentiator circuit: 
+		$$ V_{out}(\nu) = - RC \cdot j 2 \pi \nu V_{in}(\nu) $$
+		\noindent
+		Therefore, the frequency response of the differentiator circuit is directily proportional to the input signal's frequency.
+		Since all the constants are real and positive, the frequency response lies in the complex field's negative imaginary axis, it is expected to find a phase of $-\frac{\pi}{2}$.
 		
+	\newpage
 	\subsection{Integrator circuit}
 		The integrator circuit can be easily obtained from a differentiator circuit by simply swapping the resistor and the capacitor. 
-		The schematic diagram of the circuit is illustrated in Figure \ref{fig:integrator_circuit}. \\\\
-		Similar to the approach taken with the differentiator circuit, Kirchhoff's circuit laws can be employed at the virtual ground node to obtain the equation that characterizes the integrator circuit's behavior: $$ \frac{V_{in}(t)}{R} = - C \cdot \frac{d}{dt}V_{out}(t) \quad \Longrightarrow \quad V_{out}(t) = - \frac{1}{RC} \cdot \int_{\SI{0}{\second}}^t V_{in}(\tau)d\tau + V(\SI{0}{\second}) $$
-		Notably, the output voltage is proportional to the integral of the input voltage over time, with adjustments related to the time constant and the initial conditions of the circuit. \\
-		The term $V(\SI{0}{\second})$ represents the initial condition of the output voltage at $t=\SI{0}{\second}$ and plays a pivotal role in shaping the behavior of the circuit, as it introduces an offset or a foundational voltage level to the integrated output signal. 
-		This offset can serve as a calibration factor, facilitating the alignment of the output signal with a desired reference level. \\
-		For instance, in cases where the initial measurements demonstrated an unexpected shift, it became imperative to introduce a robust resistor ($R=\SI{0.98}{\mega\ohm}$) to the circuit. 
-		This strategic inclusion was necessary to rectify the observed shifts in measurements and to achieve the desired circuit response. 
-		The high-value resistor played a crucial role in mitigating these deviations and aligning the measurements with the intended outcomes.
+		The schematic diagram of the circuit is illustrated in Figure \ref{fig:integrator_circuit}. 
 		\begin{figure}[H]
 		    \centering
 		    \includegraphics[width=0.5\textwidth]{figures/integrator/circuit.png}
 		    \caption{Integrator circuit schematic.}
 		    \label{fig:integrator_circuit}
 		\end{figure}
+		\noindent
+		Similar to the approach taken with the differentiator circuit, Kirchhoff's circuit laws can be employed at the virtual ground node to obtain the equation that characterizes the integrator circuit's behavior: $$ \frac{V_{in}(t)}{R} = - C \cdot \frac{d}{dt}V_{out}(t) \quad \Longrightarrow \quad V_{out}(t) = - \frac{1}{RC} \cdot \int_{\SI{0}{\second}}^t d\tau \ V_{in}(\tau) + V(\SI{0}{\second}) $$
+		Notably, the output voltage is proportional to the integral of the input voltage over time, with adjustments related to the time constant and the initial conditions of the circuit. \\
+		The term $V(\SI{0}{\second})$ represents the initial condition of the output voltage at $t=\SI{0}{\second}$ and introduces an offset or a foundational voltage level to the integrated output signal. 
+		This offset can serve as a calibration factor, facilitating the alignment of the output signal with a desired reference level. \\
+		Using Fourier's transform and its property, it is possible to further simplify the integral equation to obtain the frequency response of the circuit: 
+		$$ V_{out}(\nu) = \frac{j}{RC \cdot 2 \pi \nu} \cdot V_{in}(\nu) $$
+		The integrator circuit's frequency response exhibits an inverse relationship with the input signal's frequency and is situated along the positive imaginary axis within the complex domain.
+		Therefore it is expected to measure a phase of $\frac{\pi}{2}$. \\
+		The limitations of an ideal integrator can be minimized by adding resistor in parallel with the capacitor, which avoids op-amp going into open loop configuration at low frequencies.
+		For instance, the initial measurements demonstrated an unexpected shift, it became imperative to introduce a robust resistor ($R=\SI{0.98}{\mega\ohm}$) to the circuit. 
+		This strategic inclusion rectified the observed shifts in measurements. 
